@@ -1,0 +1,80 @@
+<html>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9f9f9;
+      }
+
+      .calendar {
+        width: 350px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px #eeeeee;
+        background-color: #fff;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .calendar-header {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f0f0f0;
+      }
+
+      td:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+
+    <div class="calendar">
+      <div class="calendar-header">Dec 2024</div>
+      <table id="calendar-table"></table>
+      <script>
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const dates = [
+          ['1', '2', '3', '4', '5', '6', '7'],
+          ['8', '9', '10', '11', '12', '13', '14'],
+          ['15', '16', '17', '18', '19', '20', '21'],
+          ['22', '23', '24', '25', '26', '27', '28'],
+          ['29', '30', '31','','','','']
+        ];
+
+        const table = document.getElementById('calendar-table');
+        let tableHTML = '<tr>';
+        days.forEach(day => tableHTML += `<th>${day}</th>`);
+        tableHTML += '</tr>';
+        dates.forEach(week => {
+          tableHTML += '<tr>';
+          week.forEach(date => {
+            tableHTML += `<td>${date}</td>`;
+          });
+          tableHTML += '</tr>';
+        });
+        table.innerHTML = tableHTML;
+      </script>
+    </div>
+  </body>
+</html>
